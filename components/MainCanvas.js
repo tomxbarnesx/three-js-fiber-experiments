@@ -22,7 +22,7 @@ function Box(props) {
       onPointerOut={(event) => setHover(false)}
     >
       <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={hovered ? 'hotpink' : 'purple'} />
+      <meshStandardMaterial color={hovered ? props.hoverColor : props.color} />
     </mesh>
   )
 }
@@ -57,8 +57,8 @@ export default function MainCanvas(){
       />*/}
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
-      <Box position={[-1.2, 0, 0]} />
-      <Box position={[1.2, 0, 0]} />
+      <Box position={[-1.2, 0, 0]} color="purple" hoverColor="black"/>
+      <Box position={[1.2, 0, 0]} color="blue" hoverColor="black" />
       <OrbitControls enablePan={true} enableZoom={false} enableRotate={true} />   
     </Canvas>
   )
